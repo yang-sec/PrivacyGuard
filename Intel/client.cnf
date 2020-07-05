@@ -1,0 +1,5 @@
+[ ssl_client ]
+keyUsage = digitalSignature, keyEncipherment, keyCertSign
+subjectKeyIdentifier=hash
+authorityKeyIdentifier=keyid,issuer
+extendedKeyUsage = clientAuth, serverAuth

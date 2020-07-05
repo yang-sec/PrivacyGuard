@@ -1,0 +1,15 @@
+cd DataOwner
+make clean
+cd ../DataOwner_group
+make clean
+cd ../iDataAgent
+make clean
+cd ../DataBroker
+make clean
+cd ../DataConsumer
+make clean
+cd ../CEE
+make clean
+cd ../Enclave_testML
+make clean
+cd ..
