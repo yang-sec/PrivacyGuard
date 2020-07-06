@@ -28,7 +28,7 @@ using namespace std;
 
 
 /* ------- Parameters -------- */
-#define N_TCS 4
+#define N_TCS 128
 char ContractAddress[100]   = "7CAC532e3E93666247a56D987e25AEa5050B8cee"; // DB
 /* --------------------------- */
 

@@ -206,6 +206,10 @@ int sp_ra_proc_msg1_req(const sample_ra_msg1_t *p_msg1,
         uint32_t sig_rl_size = 0;
 
         // The product interface uses a REST based message to get the SigRL.
+
+        // ####### To simulate IAS response ########
+        usleep(100000);
+        // #########################################
         
         ret = g_sp_extended_epid_group_id->get_sigrl(p_msg1->gid, &sig_rl_size, &sig_rl);
         if(0 != ret)
@@ -592,7 +596,13 @@ int sp_ra_proc_msg3_req(const sample_ra_msg3_t *p_msg3,
         }
 
         // Verify Enclave policy (an attestation server may provide an API for this if we
-        // registered an Enclave policy)
+        // registered an Enclave policy
+
+        // ####### To simulate IAS response ########
+        printf("\nQuery to IAS\n");
+        usleep(500000);
+        printf("\nReceive from IAS\n");
+        // #########################################
 
         // Verify quote with attestation server.
         // In the product, an attestation server could use a REST message and JSON formatting to request

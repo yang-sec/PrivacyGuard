@@ -181,7 +181,7 @@ int remote_attest_enclave(int socket_num, int* p_challenger_type, enclave_info_t
             printf("[get_msg1] enclave_info->context = %u\n", enclave_info->context);
 
             ret = sgx_ra_get_msg1(enclave_info->context, enclave_info->enclave_id, sgx_ra_get_ga, (sgx_ra_msg1_t*)((uint8_t*)p_msg1_full + sizeof(ra_samp_request_header_t)));
-            sleep(0.001); // Wait between retries
+            usleep(1000); // Wait between retries
         } while (SGX_ERROR_BUSY == ret && busy_retry_time--);
         
         if(SGX_SUCCESS != ret)
@@ -540,7 +540,7 @@ int remote_attest_enclave_parallel(int socket_num, int* p_challenger_type, encla
         {
             ret = sgx_ra_get_msg1(enclave_info->context, enclave_info->enclave_id, sgx_ra_get_ga, (sgx_ra_msg1_t*)((uint8_t*)p_msg1_full + sizeof(ra_samp_request_header_t)));
             
-            sleep(0.001); // Wait between retries
+            sleep(0.01); // Wait between retries
         } while (SGX_ERROR_BUSY == ret && busy_retry_time--);
 
         if(SGX_SUCCESS != ret)

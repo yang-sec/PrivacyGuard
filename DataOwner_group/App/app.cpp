@@ -72,7 +72,7 @@ int main(int argc , char **argv)
     socket_iDA = socket(AF_INET , SOCK_STREAM , 0);
     if (socket_iDA == -1) { printf("Could not create socket."); return 1;}
     server_iDA.sin_family = AF_INET;
-    server_iDA.sin_addr.s_addr = inet_addr("192.168.0.24"); // iDA's IP address
+    server_iDA.sin_addr.s_addr = inet_addr("192.168.1.178"); // iDA's IP address
     server_iDA.sin_port = htons( 8001 );
 
     /* DO config: assign each DO an account address and a contract address */ 
