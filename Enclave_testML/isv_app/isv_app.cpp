@@ -131,6 +131,8 @@ int main(int argc, char* argv[])
                         &status,
                         N);
 
+                printf("\nbreak\n");
+
                 /* Encrypt all data files with the known key */
                 for(i = 0; i < N; i++)
                 {
@@ -138,6 +140,8 @@ int main(int argc, char* argv[])
                     encrypt_file(1, i+1);
                 }
                 
+                
+
                 tic = stime(); 
                 // enclave_compute_task(&enclave_info, Request_DC, Request_type, Request_start, Request_end, Request_operation);
                 // enclave_compute_task(&enclave_info, 1, 0, 1, N, 3);
@@ -194,6 +198,8 @@ int main(int argc, char* argv[])
                         enclave_info.enclave_id,
                         &status,
                         N);
+
+                
 
                 /* Encrypt all data files with the known key */
                 for(i = 0; i < N; i++)

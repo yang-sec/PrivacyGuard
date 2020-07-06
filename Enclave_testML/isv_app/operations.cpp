@@ -750,7 +750,7 @@ int enclave_compute_task_normal(int Request_type, int Request_start, int Request
     uint32_t data_loc = 0, mac_loc = 0;
 
     /* File IO init */
-    char buf3[100], buf4[100];
+    char buf3[10000], buf4[10000];
     sprintf(buf3, "data/Task_%d_result_en.txt", Request_operation);
     sprintf(buf4, "data/Task_%d_result_en_mac.txt", Request_operation);  
     FILE *ofp_result = fopen(buf3, "wb");
@@ -834,9 +834,7 @@ int enclave_compute_task_normal(int Request_type, int Request_start, int Request
 
   
 
-    /* Computation result and message init */
-    uint8_t *result_encrypted;
-    uint8_t result_gcm_mac[AESGCM_MAC_SIZE];
+    
     
     /* Computation task */
     switch(Request_operation)
@@ -845,11 +843,12 @@ int enclave_compute_task_normal(int Request_type, int Request_start, int Request
         case 2: result_size = TASK2_RESULT_SIZE; break;
         case 3: result_size = TASK3_RESULT_SIZE; break;
     }
-    result_encrypted = (uint8_t *) malloc(result_size);
 
+    /* Computation result and message init */
+    uint8_t *result_encrypted = (uint8_t *) malloc(result_size);;
+    uint8_t result_gcm_mac[AESGCM_MAC_SIZE];
+    uint8_t *p_result_encrypted = (uint8_t *) malloc(result_size);
 
-
-    uint8_t *p_result_encrypted = (uint8_t *) malloc(10000);
     switch(Request_operation)
     {
         case 3:
@@ -900,6 +899,8 @@ int enclave_compute_task_normal(int Request_type, int Request_start, int Request
                                             0,
                                             &result_gcm_mac); // Output
 
+
+
             /* Compute K_result_hash and C_result_hash */
             char K_result_string[32], C_result_string[result_size*2];
             u_array2c_array(K_result_string, K_result, sizeof(K_result));
@@ -916,12 +917,16 @@ int enclave_compute_task_normal(int Request_type, int Request_start, int Request
         }
     }
 
+    // printf("\nX1\n");
 
     /* Store the encrypted svm_model result in the cloud */
     fwrite(p_result_encrypted, 1, result_size, ofp_result);
     fwrite(result_gcm_mac, 1, AESGCM_MAC_SIZE, ofp_result_mac);
+    // printf("\nX2\n");
     fclose(ofp_result);
     fclose(ofp_result_mac);
+
+
 
 
     return 0;
