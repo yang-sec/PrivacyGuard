@@ -18,6 +18,10 @@
 - DataBroker Contract:  0x7CAC532e3E93666247a56D987e25AEa5050B8cee
 - DataOwner Contract:   0x208D3CEdFE8918298A726264B578A9BA2AE8c85B
 
+## How to run
+To build all programs: bash ./allmake
+To clean all programs: bash ./allclean
+
 ## System workflow for single data usage case with 1 DO, 1 iDA, 1 CEE
 1. DO publishes its data usage policy through Ethereum smart contracts.
 2. DO remotely attests iDA's enclave.
