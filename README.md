@@ -1,4 +1,5 @@
 # PrivacyGuard
+7/16/2020 Update: Main prototype and raw (i.e., messy) simulation code uploaded. Code sanization and documentation will be performed between 8/16/2020-8/30/2020.
 
 ## Entities to be run in the cloud:
 - iDA (iDataAgent)
@@ -12,11 +13,10 @@
 ## System requirements
 - OS: Ubuntu 16.04 LTS
 - Intel SGX driver, PSW, SDK
-- Put the libsecp256k1.a inside $(SGX_SDK)/lib64
 
 ## Deployed contracts (on Ethereum Rinkeby)
-DataBroker:  0x7CAC532e3E93666247a56D987e25AEa5050B8cee
-DataOwner:   0x208D3CEdFE8918298A726264B578A9BA2AE8c85B
+DataBroker Contract:  0x7CAC532e3E93666247a56D987e25AEa5050B8cee
+DataOwner Contract:   0x208D3CEdFE8918298A726264B578A9BA2AE8c85B
 
 ## System workflow for single data usage case with 1 DO, 1 iDA, 1 CEE
 1. DO publishes its data usage policy through Ethereum smart contracts.
@@ -26,9 +26,11 @@ DataOwner:   0x208D3CEdFE8918298A726264B578A9BA2AE8c85B
 5. DC sends a REQUEST message to DO's iDataAgent.
 6. iDataAgent checks DC's deposit amount in the contract and then deploys CEE.
 7. iDataAgent and DC remotely attest CEE's enclave.
-8. With the secure channel establish by step 6, iDataAgent provisions DO's data decryption key to CEE and DC provisions its signing key to CEE.
+8. With the secure channel establish by step 6, iDataAgent provisions DO's data decryption key K_data to CEE.
 9. CEE performs data operation.
-10. CEE commits the data usage by sending a transaction to call the contract's record() function, securely provisions the result to DC, and then destructs the enclave. Note that the transaction is signed inside the enclave, and then published in the form of raw transaction hex.
+10. CEE securely provisions C_result, Hash(C_result), Hash(K_result) to DC; K_result to iDA. Then destructs the enclave.
+11. DC calls the contract's computationComplete() function with Hash(K_result).
+12. DO calls the contract's completeTransaction() function with K_result.
 
 ## Misc
 CEE_Rust needs to be run in sgx-rust docker
