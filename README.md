@@ -15,8 +15,8 @@
 - Intel SGX driver, PSW, SDK
 
 ## Deployed contracts (on Ethereum Rinkeby)
-DataBroker Contract:  0x7CAC532e3E93666247a56D987e25AEa5050B8cee
-DataOwner Contract:   0x208D3CEdFE8918298A726264B578A9BA2AE8c85B
+- DataBroker Contract:  0x7CAC532e3E93666247a56D987e25AEa5050B8cee
+- DataOwner Contract:   0x208D3CEdFE8918298A726264B578A9BA2AE8c85B
 
 ## System workflow for single data usage case with 1 DO, 1 iDA, 1 CEE
 1. DO publishes its data usage policy through Ethereum smart contracts.
@@ -32,5 +32,5 @@ DataOwner Contract:   0x208D3CEdFE8918298A726264B578A9BA2AE8c85B
 11. DC calls the contract's computationComplete() function with Hash(K_result).
 12. DO calls the contract's completeTransaction() function with K_result.
 
-## Misc
-CEE_Rust needs to be run in sgx-rust docker
+## Publication
+The paper titled "PrivacyGuard: Enforcing Private Data Usage Control with Blockchain and Off-chain Contract Execution" will appear in ESORICS 2020. Also available at arXiv.
