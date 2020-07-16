@@ -1,5 +1,5 @@
 # PrivacyGuard
-7/16/2020 Update: Main prototype and raw (i.e., messy) simulation code uploaded. Code sanization and documentation will be performed between 8/16/2020-8/30/2020.
+7/16/2020 Update: Main prototype and LAN-based simulation code uploaded. The current form is quite messy and somewhat redundant. Code sanization and documentation will be performed between 8/16/2020-8/30/2020.
 
 ## Entities to be run in the cloud:
 - iDA (iDataAgent)
@@ -19,8 +19,9 @@
 - DataOwner Contract:   0x208D3CEdFE8918298A726264B578A9BA2AE8c85B
 
 ## How to run
-To build all programs: bash ./allmake
-To clean all programs: bash ./allclean
+- To build all programs: bash ./allmake
+- To clean all programs: bash ./allclean
+- Executables will appear in individual directories.
 
 ## System workflow for single data usage case with 1 DO, 1 iDA, 1 CEE
 1. DO publishes its data usage policy through Ethereum smart contracts.
