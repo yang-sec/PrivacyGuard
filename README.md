@@ -35,4 +35,4 @@
 12. DO calls the contract's completeTransaction() function with K_result.
 
 ## Publication
-The paper titled "PrivacyGuard: Enforcing Private Data Usage Control with Blockchain and Off-chain Contract Execution" will appear in ESORICS 2020. Also available at arXiv.
+The paper titled "PrivacyGuard: Enforcing Private Data Usage Control with Blockchain and Attested Off-chain Contract Execution" will appear in ESORICS 2020. Also available at arXiv.
