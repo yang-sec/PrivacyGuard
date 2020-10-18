@@ -1,6 +1,3 @@
-# PrivacyGuard
-7/16/2020 Update: Main prototype and LAN-based simulation code uploaded. The current form is quite messy and somewhat redundant. Code sanization and documentation will be performed between 8/16/2020-8/30/2020.
-
 ## Entities to be run in the cloud:
 - iDA (iDataAgent)
 - DB (Data Broker)
