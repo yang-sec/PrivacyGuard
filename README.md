@@ -1,3 +1,5 @@
+*Dear readers, we kindly note that this repo provides a proof-of-concept implementation of PrivacyGuard, not a product. An older generation of Intel SGX is used. We recommend readers to use it as a workflow reference rather than a system baseline. Thanks!*
+
 ## Entities to be run in the cloud:
 - iDA (iDataAgent)
 - DB (Data Broker)
@@ -35,4 +37,4 @@
 12. DO calls the contract's completeTransaction() function with K_result.
 
 ## Publication
-The paper titled "PrivacyGuard: Enforcing Private Data Usage Control with Blockchain and Attested Off-chain Contract Execution" will appear in ESORICS 2020, Sep 14-18, 2020.
+The paper titled "PrivacyGuard: Enforcing Private Data Usage Control with Blockchain and Attested Off-chain Contract Execution" appeared in ESORICS 2020, Sep 14-18, 2020.
