@@ -1,4 +1,4 @@
-*Dear readers, we kindly note that this repo provides a proof-of-concept implementation of PrivacyGuard, not a product. An older generation of Intel SGX is used. We recommend readers to use it as a workflow reference rather than a system baseline. Thanks!*
+*Dear users, we kindly note that this repo provides a proof-of-concept implementation of PrivacyGuard, not a product. An older generation of Intel SGX is used. We recommend readers to use it as a workflow reference rather than a system baseline. Thanks!*
 
 ## Entities to be run in the cloud:
 - iDA (iDataAgent)
@@ -11,11 +11,12 @@
 
 ## System requirements
 - OS: Ubuntu 16.04 LTS
-- Intel SGX driver, PSW, SDK
+- Intel SGX driver, PSW, SDK (see https://github.com/intel/linux-sgx)
 
 ## Deployed contracts (on Ethereum Rinkeby)
-- DataBroker Contract:  0x7CAC532e3E93666247a56D987e25AEa5050B8cee
-- DataOwner Contract:   0x208D3CEdFE8918298A726264B578A9BA2AE8c85B
+- DataBroker Contract address:  0x7CAC532e3E93666247a56D987e25AEa5050B8cee
+- DataOwner Contract address:   0x208D3CEdFE8918298A726264B578A9BA2AE8c85B
+(Search contract addresses at https://rinkeby.etherscan.io/)
 
 ## How to run
 - To build all programs: bash ./allmake
