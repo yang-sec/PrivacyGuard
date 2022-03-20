@@ -1,4 +1,4 @@
-*Dear users, we kindly note that this repo provides a proof-of-concept implementation of PrivacyGuard, not a product. An older generation of Intel SGX is used. We recommend readers to use it as a workflow reference rather than a system baseline. Thanks!*
+*Dear users, we kindly note that this repo provides a proof-of-concept implementation of PrivacyGuard, not a product release. An older generation (2.0.1) of Intel SGX is used. We recommend readers to use our code as a workflow reference, rather than a product baseline. Thanks!*
 
 ## Entities to be run in the cloud:
 - iDA (iDataAgent)
@@ -37,5 +37,9 @@
 11. DC calls the contract's computationComplete() function with Hash(K_result).
 12. DO calls the contract's completeTransaction() function with K_result.
 
+## Test the Enclave Program ML Model Training Only (i.e., off-chain execution)
+- Go to Enclave_testML and there should be a similar executable, which only instantiates the in-enclave ML training functions.
+- Try option 3,4,5,6 to reproduce the enclave benchmark results in our paper.
+
 ## Publication
-The paper titled "PrivacyGuard: Enforcing Private Data Usage Control with Blockchain and Attested Off-chain Contract Execution" appeared in ESORICS 2020, Sep 14-18, 2020.
+The paper titled "PrivacyGuard: Enforcing Private Data Usage Control with Blockchain and Attested Off-chain Contract Execution" has appeared in ESORICS 2020, Sep 14-18, 2020.
