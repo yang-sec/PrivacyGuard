@@ -59,7 +59,7 @@
 #include "svm.h"
 #include "fann.h"
 #include "keccak.h"
-
+# define DEBUG 0
 // #include "enclave_svm.cpp"
 
 // This is the public EC key of the SP. The corresponding private EC key is
@@ -449,12 +449,14 @@ sgx_status_t ECALL_put_secret_data(
                 printf("[ENCLAVE] 128GCM decrypt failed\n");
             }
 
+            # ifdef DEBUG
             printf("\n[ENCLAVE] DataConsumer's secret is:\n");
             for(i=0;i<secret_size;i++)
             {
                 printf("0x%02X ", g_secret_DC[i]);
             }
             printf("\n");
+            #endif
         }
         else // iDataAgent
         {
@@ -476,12 +478,14 @@ sgx_status_t ECALL_put_secret_data(
                                          (const sgx_aes_gcm_128bit_tag_t *)(p_gcm_mac));
 
 
+            # ifdef DEBUG
             printf("\n[ENCLAVE] DataOwner's data key is:\n");
             for(i=0;i<secret_size;i++)
             {
                 printf("0x%02X ", g_secret_iDA[i]);
             }
             printf("\n");
+            # endif
         }
 
         // Once the server has the shared secret, it should be sealed to
@@ -549,11 +553,13 @@ sgx_status_t ECALL_compute_task1(
                                      (const sgx_aes_gcm_128bit_tag_t*) p_data_gcm_mac);
     }while(ret != SGX_SUCCESS);
 
+    # define DEBUG
     printf("\n[ENCLAVE] DataOwner's data are:\n");
     for(i = 0;i < data_size;i++)
     {
         printf("%c", g_data[i]);
     }
+    # endif
 
 
     // The result
