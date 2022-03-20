@@ -553,7 +553,7 @@ sgx_status_t ECALL_compute_task1(
                                      (const sgx_aes_gcm_128bit_tag_t*) p_data_gcm_mac);
     }while(ret != SGX_SUCCESS);
 
-    # define DEBUG
+    # ifdef DEBUG
     printf("\n[ENCLAVE] DataOwner's data are:\n");
     for(i = 0;i < data_size;i++)
     {
